@@ -1,0 +1,30 @@
+{
+	"name": "redandblue_cookies",
+	"version": "0.0.2",
+	"license": "MIT",
+	"main": "src/index.js",
+	"scripts": {
+		"dev": "cross-env BABEL_ENV=default webpack --watch",
+		"build": "cross-env BABEL_ENV=default NODE_ENV=production webpack -p"
+	},
+	"devDependencies": {
+		"@wordpress/babel-preset-default": "^1.2.0",
+		"autoprefixer": "^9.8.6",
+		"babel-core": "^6.26.3",
+		"babel-eslint": "^8.2.3",
+		"babel-loader": "^7.1.4",
+		"cross-env": "^5.1.5",
+		"css-loader": "^4.3.0",
+		"eslint": "^4.19.1",
+		"extract-text-webpack-plugin": "^3.0.2",
+		"postcss-loader": "^2.1.5",
+		"raw-loader": "^0.5.1",
+		"source-map-loader": "^1.1.0",
+		"style-loader": "^0.19.1",
+		"stylus": "^0.54.8",
+		"stylus-loader": "^3.0.2",
+		"webpack": "^3.11.0"
+	},
+	"description": "Run `npm install` and `npm run dev` to make changes",
+	"author": "Red & Blue Oy - Petri Länsimaa"
+}

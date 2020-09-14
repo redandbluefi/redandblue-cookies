@@ -1,0 +1,19 @@
+{
+	"name": "redandbluefi/redandblue-cookies",
+	"type": "wordpress-plugin",
+	"description": "Mmm... Cookies for everyone. redandblue cookies plugin provides cookie notice and load scripts after customer confirmation.",
+	"homepage": "https://redandblue.fi",
+	"keywords": [
+		"wordpress",
+		"plugin"
+	],
+	"license": "MIT",
+	"version": "0.0.2",
+	"authors": [
+		{
+			"name": "Petri Länsimaa",
+			"email": "petri@redandblue.fi",
+			"homepage": "https://redandblue.fi"
+		}
+	]
+}
