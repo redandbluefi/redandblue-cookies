@@ -5,12 +5,9 @@ window.addEventListener('load', rnbCookiesInit);
 function rnbCookiesInit() {
 	const rnbCookiesOk = localStorage.getItem('rnbCookies');
 	if (rnbCookiesOk) {
-		console.log('rnbCookiesOk');
 		rnbCookiesLoadScripts();
 	}
 	else {
-		console.log('!rnbCookiesOk');
-
 		setTimeout(() => {
 			rnbCookiesShowNotice();
 		}, 1000);
@@ -36,7 +33,6 @@ function rnbCookiesParseString(s) {
 }
 
 function rnbCookiesShowNotice() {
-	console.log('generate notice');
 	const cookiesApp = document.createElement('div');
 	cookiesApp.setAttribute('id', 'rnb_cookies');
 
@@ -48,7 +44,7 @@ function rnbCookiesShowNotice() {
 
 	const cookiesContent = document.createElement('div');
 	cookiesContent.classList.add('rnb_cookies__content');
-	cookiesNotice.innerHTML = rnb_cookies_data.content;
+	cookiesContent.innerHTML = rnb_cookies_data.content;
 
 	const cookiesbutton = document.createElement('button');
 	cookiesbutton.classList.add('rnb_cookies__button');
@@ -60,7 +56,6 @@ function rnbCookiesShowNotice() {
 	cookiesContiner.appendChild(cookiesNotice);
 
 	cookiesApp.appendChild(cookiesContiner);
-	console.log('generated notice', cookiesApp);
 
 	document.body.appendChild(cookiesApp);
 
