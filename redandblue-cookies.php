@@ -30,7 +30,7 @@
       array( 
         'content' 	        => apply_filters('rnb_cookies_content', 'text here'),
         'button'	          => apply_filters('rnb_cookies_button', 'Ok'),
-        'header_scripts'		=> apply_filters('rnb_cookies_header_scripts', ''),
+        'header_scripts'		=> json_encode(apply_filters('rnb_cookies_header_scripts', [])),
         'body_scripts'		  => apply_filters('rnb_cookies_body_scripts', '')
       )
     );
