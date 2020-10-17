@@ -15,12 +15,16 @@ function rnbCookiesInit() {
 }
 
 function rnbCookiesLoadScripts() {
-	const headScript = rnbCookiesParseString(rnb_cookies_data.header_scripts);
-	const scriptTag = document.createElement('script');
-	scriptTag.text = headScript;
+	const headScripts = JSON.parse(rnb_cookies_data.header_scripts);
 
-	document.head.appendChild(scriptTag);
-
+	headScripts.forEach(script => {
+		const headScript = rnbCookiesParseString(script);
+		const scriptTag = document.createElement('script');
+		scriptTag.text = headScript;
+	
+		document.head.appendChild(scriptTag);
+	});
+	
 	const body = document.querySelector('body');
 	body.insertAdjacentHTML('afterbegin', rnb_cookies_data.body_scripts);
 }
