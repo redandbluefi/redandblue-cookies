@@ -8,9 +8,7 @@ function rnbCookiesInit() {
 		rnbCookiesLoadScripts();
 	}
 	else {
-		setTimeout(() => {
-			rnbCookiesShowNotice();
-		}, 1000);
+		rnbCookiesSleep(1000).then(() => { rnbCookiesShowNotice(); });
 	}
 }
 
@@ -68,9 +66,7 @@ function rnbCookiesShowNotice() {
 		button.addEventListener('click', rnbCookiesConfirm, false);
 	});
 
-	setTimeout(() => {
-		cookiesNotice.classList.add('show');
-	}, 1000);
+	rnbCookiesSleep(1000).then(() => { cookiesNotice.classList.add('show'); });
 }
 
 function rnbCookiesConfirm() {
@@ -79,4 +75,8 @@ function rnbCookiesConfirm() {
 	cookiesNotice.classList.remove('show');
 
 	rnbCookiesLoadScripts();
+}
+
+function rnbCookiesSleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }

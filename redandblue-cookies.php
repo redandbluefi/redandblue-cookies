@@ -21,7 +21,7 @@
 	function rnb_cookies_scripts() {
 		wp_enqueue_script(
 			'rnb-cookies-js', 
-			RNB_COOKIES_PLUGIN_URL . '/dist/js/index.js', 
+			RNB_COOKIES_PLUGIN_URL . 'dist/js/index.js', 
 			[], 
 			filemtime(RNB_COOKIES_PLUGIN_PATH . 'dist/js/index.js'), 
       true);
@@ -39,7 +39,7 @@
   function rnb_cookies_styles () {
     wp_enqueue_style(
       'rnb-cookies-style', 
-      RNB_COOKIES_PLUGIN_URL . '/dist/css/style.css', 
+      RNB_COOKIES_PLUGIN_URL . 'dist/css/style.css', 
       false, 
       filemtime(RNB_COOKIES_PLUGIN_PATH . 'dist/css/style.css'));
   }
