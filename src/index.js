@@ -12,7 +12,7 @@ function rnbCookiesInit() {
 	}
 }
 
-async function rnbCookiesLoadScripts() {
+function rnbCookiesLoadScripts() {
 	const headScripts = JSON.parse(rnb_cookies_data.header_scripts);
 
 	headScripts.forEach(rawScript => {
