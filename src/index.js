@@ -15,23 +15,33 @@ function rnbCookiesInit() {
 function rnbCookiesLoadScripts() {
 	const headScripts = JSON.parse(rnb_cookies_data.header_scripts);
 
-	headScripts.forEach(script => {
-		const headScript = rnbCookiesParseString(script);
+	headScripts.forEach(rawScript => {
+		const sleep = rawScript.substr(0, 5) === 'sleep';
+		const script = sleep ? rawScript.slice(5) : rawScript;
+
+		const scriptTemplate = document.createElement('template');
+		scriptTemplate.insertAdjacentHTML('afterbegin', script);
+		const tag = scriptTemplate.querySelector("script");
+		const scriptAttriputes = tag.attributes;
+
 		const scriptTag = document.createElement('script');
-		scriptTag.text = headScript;
-	
-		document.head.appendChild(scriptTag);
+		scriptTag.text = tag.innerHTML;
+
+		if(scriptAttriputes.length) {
+			Object.keys(scriptAttriputes).forEach(key => {
+				scriptTag.setAttribute(scriptAttriputes[key].name, scriptAttriputes[key].value);
+			})
+		}
+		if(sleep) {
+			rnbCookiesSleep(1000).then(() => { document.head.appendChild(scriptTag); });
+		}
+		else {
+			document.head.appendChild(scriptTag);
+		}
 	});
 	
 	const body = document.querySelector('body');
 	body.insertAdjacentHTML('afterbegin', rnb_cookies_data.body_scripts);
-}
-
-function rnbCookiesParseString(s) {
-	let returnScript = s.replace(/<script>/, '');
-	returnScript = returnScript.replace(/<\/script>/, '');
-
-	return returnScript;
 }
 
 function rnbCookiesShowNotice() {
