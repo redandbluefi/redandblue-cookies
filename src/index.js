@@ -1,5 +1,3 @@
-import './styl/style.styl';
-
 window.addEventListener('load', rnbCookiesInit);
 
 function rnbCookiesInit() {
@@ -76,13 +74,13 @@ function rnbCookiesShowNotice() {
 		button.addEventListener('click', rnbCookiesConfirm, false);
 	});
 
-	rnbCookiesSleep(1000).then(() => { cookiesNotice.classList.add('show'); });
+	rnbCookiesSleep(1000).then(() => { cookiesApp.classList.add('show'); });
 }
 
 function rnbCookiesConfirm() {
-	const cookiesNotice = document.querySelector('.rnb_cookies__notice');
+	const cookiesApp = document.querySelector('#rnb_cookies');
 	localStorage.setItem('rnbCookies', true);
-	cookiesNotice.classList.remove('show');
+	cookiesApp.classList.remove('show');
 
 	rnbCookiesLoadScripts();
 }
