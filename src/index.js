@@ -46,7 +46,8 @@ function rnbCookiesLoadScripts() {
 
 function rnbCookiesShowNotice() {
 	const cookiesApp = document.createElement('div');
-	cookiesApp.setAttribute('id', 'rnb_cookies');
+  cookiesApp.setAttribute('id', 'rnb_cookies');
+  cookiesApp.setAttribute('class', 'open');
 
 	const cookiesContiner = document.createElement('div');
 	cookiesContiner.classList.add('rnb_cookies');
@@ -80,9 +81,11 @@ function rnbCookiesShowNotice() {
 }
 
 function rnbCookiesConfirm() {
+  const cookieApp = document.querySelector('#rnb_cookies');
 	const cookiesNotice = document.querySelector('.rnb_cookies__notice');
 	localStorage.setItem('rnbCookies', true);
-	cookiesNotice.classList.remove('show');
+  cookiesNotice.classList.remove('show');
+  cookieApp.classList.remove('open');
 
 	rnbCookiesLoadScripts();
 }
