@@ -47,7 +47,6 @@ function rnbCookiesLoadScripts() {
 function rnbCookiesShowNotice() {
 	const cookiesApp = document.createElement('div');
   cookiesApp.setAttribute('id', 'rnb_cookies');
-  cookiesApp.setAttribute('class', 'open');
 
 	const cookiesContiner = document.createElement('div');
 	cookiesContiner.classList.add('rnb_cookies');
@@ -77,7 +76,10 @@ function rnbCookiesShowNotice() {
 		button.addEventListener('click', rnbCookiesConfirm, false);
 	});
 
-	rnbCookiesSleep(1000).then(() => { cookiesNotice.classList.add('show'); });
+	rnbCookiesSleep(1000).then(() => { 
+    cookiesNotice.classList.add('show');
+    cookiesApp.classList.add('open');
+   });
 }
 
 function rnbCookiesConfirm() {
