@@ -46,7 +46,7 @@ function rnbCookiesLoadScripts() {
 
 function rnbCookiesShowNotice() {
 	const cookiesApp = document.createElement('div');
-	cookiesApp.setAttribute('id', 'rnb_cookies');
+  cookiesApp.setAttribute('id', 'rnb_cookies');
 
 	const cookiesContiner = document.createElement('div');
 	cookiesContiner.classList.add('rnb_cookies');
@@ -76,13 +76,18 @@ function rnbCookiesShowNotice() {
 		button.addEventListener('click', rnbCookiesConfirm, false);
 	});
 
-	rnbCookiesSleep(1000).then(() => { cookiesNotice.classList.add('show'); });
+	rnbCookiesSleep(1000).then(() => { 
+    cookiesNotice.classList.add('show');
+    cookiesApp.classList.add('open');
+   });
 }
 
 function rnbCookiesConfirm() {
+  const cookieApp = document.querySelector('#rnb_cookies');
 	const cookiesNotice = document.querySelector('.rnb_cookies__notice');
 	localStorage.setItem('rnbCookies', true);
-	cookiesNotice.classList.remove('show');
+  cookiesNotice.classList.remove('show');
+  cookieApp.classList.remove('open');
 
 	rnbCookiesLoadScripts();
 }
