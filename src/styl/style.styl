@@ -1,33 +1,77 @@
 .rnb_cookies {
-	
-	&__notice {
-		position: fixed;
-		left: 0;
-		bottom: 0;
-		z-index: 99999;
-		width: 100vw;
-		display: flex;
-		align-content: center;
-		justify-content: center;
-		padding: 10px 20px;
-		background-color: #ffffff;
-		box-shadow: 0 0 6px rgba(0,0,0, .5);
+  &__notice {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 99999;
+    width: 100vw;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+    transform: translateY(200%);
+    transition: transform 300ms ease-in;
 
-		transform: translateY(200%);
-		transition: transform 300ms ease-in;
+    &.show {
+      transform: translateY(0);
+      transition: transform 300ms ease-out;
+    }
+  }
 
-		&.show {
-			transform: translateY(0);
-			transition: transform 300ms ease-out;
-		}
-	}
+  &__content {
+    max-width: 600px;
+    margin-right: 20px;
+  }
 
-	&__content {
-		max-width: 600px;
-		margin-right: 20px;
-	}
+  &__button {
+    cursor: pointer;
+    background: #ffffff;
+    color: #000;
+    transition: 0.3s ease-in;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    cursor: pointer;
+    appearance: none; // Safari does nasty things without
+    padding: 22px 80px;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.4;
+    text-decoration: none;
+    border-radius: 45px;
+    margin: 8px;
 
-	&__button {
-		cursor pointer
-	}
+    &:focus, &:hover, &:active, &.active {
+      background: #e9e9e9;
+      color: #000;
+      transition: 0.3s ease-out;
+      outline: 0; // Provide good focus styles!
+    }
+  }
+
+  &__buttonCancel {
+    cursor: pointer;
+    background: #ffffff;
+    color: #000;
+    transition: 0.3s ease-in;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    cursor: pointer;
+    appearance: none; // Safari does nasty things without
+    padding: 22px 80px;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.4;
+    text-decoration: none;
+    border-radius: 45px;
+    margin: 8px;
+
+    &:focus, &:hover, &:active, &.active {
+      background: #e9e9e9;
+      color: #000;
+      transition: 0.3s ease-out;
+      outline: 0; // Provide good focus styles!
+    }
+  }
 }
